@@ -1,0 +1,449 @@
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin: 0;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.main-top {
+    height: 100%;
+    width: 100%;
+}
+
+.main-top-video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.main-top-page {
+    display: flex;
+    width: 100%;
+}
+
+.main-top-bar{
+    position: fixed;
+    display: flex;
+    max-width: 100%;
+    width: 99%;
+    height: 10%;
+    padding: 10px 5px 10px 5px;
+    z-index: 10;
+}
+
+.main-top-container{
+    display: flex;
+    width: 50%;
+    padding: 0px 60px 0px 60px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-top-container#left{
+    justify-content: flex-start;
+}
+
+.main-top-container-nav{
+    display: inline-flex;
+    border-radius: 35px;
+    border-width: 0px;
+    margin: 0px 20px 0px 0px;
+}
+
+#talk{
+    background-color: black;
+    color: white;
+    padding: 15px 25px 15px 25px;
+    font-size: large;
+    transition: background-color 0.2s ease-in;
+}
+
+#talk:hover{
+    background-color: rgb(194, 23, 23);
+    cursor: pointer;
+}
+
+#discover{
+    background-color: rgb(194, 23, 23);
+    color: white;
+    padding: 15px 20px 15px 20px;
+    font-size: large;
+    transition: background-color 0.2s ease-in;
+}
+
+#discover:hover{
+    background-color: white;
+    cursor: pointer;
+}
+
+#discover:hover > .discover-container > .discover-box > .box{
+    background-color: rgb(194, 23, 23);
+}
+
+.discover-container{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.discover-box{
+    display: inline-flex;
+    margin: 3px 0px 3px 0px;
+}
+
+.box#top{
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    margin: 0px 3px 0px 3px;
+}
+
+.dotted-border{
+    border: dotted;
+    border-color: blue;
+    border-radius: 10px;
+}
+
+.main-logo{
+    color: rgb(194, 23, 23);
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+    font-style: normal;
+}
+
+.main-logo:hover{
+    cursor: pointer;
+}
+
+.main-top-info-container{
+    display: flex;
+    width: 100%;
+    margin-top: 30%;
+}
+
+.main-info{
+    justify-content: flex-end;
+    width: 50%;
+    padding: 50px 70px 40px 70px;
+}
+
+.main-info-word-container{
+    height: 65%;
+}
+
+.main-info-second-container{
+    display: flex;
+    height: 35%;
+    flex-wrap: wrap;
+}
+
+.main-info-word{
+    display: inline-flex;
+    color: rgb(228, 228, 228);
+    font-family: "Outfit", sans-serif;
+    font-size: 75px;
+    font-weight: 800;
+    padding: 50px 20px 0px 0px;
+    opacity: 0;
+}
+
+.main-info-word#second{
+    display: flex;
+    width: 100%;
+    color: rgb(228, 228, 228);
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    font-size: 25px;
+}
+
+.main-info-button-container{
+    display: flex;
+    align-items: center;
+}
+
+#button{
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+    display: flex;
+    border-radius: 35px;
+    border-width: 0px;
+    padding: 10px 15px 10px 15px;
+    margin: 0px 10px 0px 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+#button:hover{
+    transform: scale(1.2);
+}
+
+.blue{
+    background-color: rgb(44, 160, 160);
+}
+
+.green{
+    background-color: rgb(39, 102, 39);
+}
+
+.red{
+    background-color: rgb(182, 58, 49);
+}
+
+.yellow{
+    background-color: rgb(193, 224, 13);
+}
+
+.main-info-word#buttonContainer{
+    padding: 0px 0px 0px 0px;
+}
+
+.content-space{
+    background-color: rgb(245, 245, 245);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px;
+}
+
+.content-container{
+    display: flex;
+    width: 100%;
+}
+
+.content-space-container-half{
+    display: flex;
+    flex: 0.5;
+    height: 700px;
+    margin: 0px 10px 0px 10px;
+}
+
+.content-space-container-full{
+    display: flex;
+    height: 1000px;
+    width: 100%;
+}
+
+.content-card-full{
+    width: 100%;
+    position: relative;
+    margin-top: 500px;
+}
+
+.content-card-half{
+    width: 100%;
+    position: relative;
+    margin-top: 500px;
+}
+
+.card-picture{
+    height: 75%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.picture-text-hidden-container{
+    opacity: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.picture-text{
+    position: absolute;
+    font-family: "Outfit", sans-serif;
+    font-weight: 900;
+    font-size: 130px;
+    color: rgb(243, 243, 243);
+}
+
+.picture-fade{
+    background-color: black;
+    height: 75%;
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+    opacity: 0;
+}
+
+.card-picture img{
+    margin-top: 125%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-picture img .full{
+    margin-top: 85%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.card-info{
+    height: 23%;
+}
+
+.card-info-title{
+    padding: 10px 0px 10px 0px;
+    font-family: "Outfit", san-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.card-info-about{
+    padding: 10px 0px 10px 0px;
+    font-family: "Outfit", san-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.card-cover{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    margin-top: 125%;
+}
+
+.card-cover .full{
+    height: 100%;
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    margin-top: 85%;
+}
+
+.card-cover#green{
+    background-color: rgb(22, 85, 22);
+}
+
+.card-cover#blue{
+    background-color: rgb(15, 51, 151);
+}
+
+.card-cover#yellow{
+    background-color: rgb(207, 207, 114);
+}
+
+.full-width-container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(5, 54, 5);
+    justify-content: center;
+    align-items: center;
+    padding: 80px;
+}
+
+.bold-container{
+    font-family: "Outfit", sans-serif;
+    font-weight: 800;
+    font-size: 100px;
+    width: 100%;
+    color: rgb(182, 58, 49);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.normal-container{
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    width: 75%;
+    font-size: 60px;
+    text-align: center;
+    color: rgb(236, 236, 236);
+    margin: 0px 200px 0px 200px;
+}
+
+.explore-button{
+    font-family: "Outfit", sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: rgb(238, 238, 238);
+    background-color: rgb(182, 58, 49);
+    display: flex;
+    border-radius: 35px;
+    border-width: 0px;
+    padding: 10px 15px 10px 15px;
+    margin: 0px 10px 0px 10px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.footer-container{
+    position: static;
+    display: flex;
+    height: 175px;
+}
+
+.footer-box{
+    display: flex;
+    flex: 1;
+    padding-top: 80px;
+    justify-content: center;
+    align-items: center;
+}
+
+#button-footer{
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+    display: flex;
+    border-radius: 35px;
+    border-width: 0px;
+    padding: 6px 20px 6px 20px;
+    margin: 0px 15px 0px 15px;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.gray{
+    background-color: rgb(241, 241, 241);
+}
+
+.footer-box-inside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px 0px 5px;
+}
+
+.footer-box-words{
+    margin: 0px 5px 0px 5px;
+}
+
+.copyright{
+    font-family: "Outfit", sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -1;
+}
