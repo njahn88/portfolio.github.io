@@ -21,25 +21,44 @@ const totalItems = $(".carousel-container .carousel-item").length;
 const containerWidth = carouselContainer.width();
 const maxTranslateX = itemWidth * totalItems - containerWidth; // 
 
-$(window).on("mousewheel", (event) => {
+function lerp(a, b, t) {
+    return a + (b - a) * t;
+}
 
-    // Determine scroll direction and scroll amount
-    const scrollAmount = event.originalEvent.wheelDelta > 0 ? -100 : 100;
-    
-    // Calculate the new translation
-    let newTranslateX = currentTranslateX + scrollAmount;
+function smoothTranslate() {
+    // Apply the smooth scroll using lerp
+    currentTranslateX = lerp(currentTranslateX, targetTranslateX, 0.1); // 0.1 is the smoothing factor
 
-    // Limit the translation within bounds
-    if (newTranslateX > 0) {
-        newTranslateX = 0; // Prevent scrolling past the start
-    } else if (Math.abs(newTranslateX) >= maxTranslateX) {
-        newTranslateX = -maxTranslateX; // Prevent scrolling past the end
-    }
-
-    // Apply the new translation
-    currentTranslateX = newTranslateX;
+    // Apply the new translateX value
     carouselContainer.css({
         transform: `translateX(${currentTranslateX}px)`,
         "-webkit-transform": `translateX(${currentTranslateX}px)` // for compatibility
     });
+
+    // Continue the animation if we're not close enough to the target
+    if (Math.abs(targetTranslateX - currentTranslateX) > 0.5) { // tolerance for stopping
+        requestAnimationFrame(smoothTranslate);
+    }
+}
+
+$(window).on("mousewheel", (event) => {
+
+    // Determine scroll direction and scroll amount
+   // Determine scroll direction and scroll amount
+   const scrollAmount = event.originalEvent.wheelDelta > 0 ? -100 : 100;
+
+   // Calculate the new target translateX
+   targetTranslateX = currentTranslateX + scrollAmount;
+
+   // Limit the translation within bounds
+   if (targetTranslateX > 0) {
+       targetTranslateX = 0; // Prevent scrolling past the start
+   } else if (targetTranslateX < -maxTranslateX) {
+       targetTranslateX = -maxTranslateX; // Prevent scrolling past the end
+   }
+
+   // Start the smooth scroll animation if it's not already running
+   if (Math.abs(targetTranslateX - currentTranslateX) > 0.5) {
+       smoothTranslate();
+   }
 });
