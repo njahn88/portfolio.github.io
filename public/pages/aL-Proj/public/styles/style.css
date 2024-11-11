@@ -39,6 +39,17 @@
     align-items: center;
 }
 
+.carousel-container{
+    display: flex;
+}
+
+.carousel-item{
+    flex-shrink: 0;
+    height: 400px;
+    width: 200px;
+    margin: 0em .5em 0em .5em;
+}
+
 .text-base{
     font-family: "Carrois Gothic", sans-serif;
     font-weight: 400;
@@ -49,4 +60,8 @@
     border-radius: 15px;
     border-color: blue;
     border-style: dotted;
+}
+
+body{
+    overflow: hidden;
 }
