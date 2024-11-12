@@ -49,6 +49,7 @@
     height: 400px;
     width: 200px;
     margin: 0em .5em 0em .5em;
+    z-index: 3;
 }
 
 .carousel-item-source{

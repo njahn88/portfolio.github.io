@@ -11,6 +11,7 @@ const itemSource = $(".top-info-box#source");
 const itemDescription = $(".top-info-box-bottom");
 const imageMarginTopRatios = ["20%", "30%", "50%"]
 const images = $("img");
+var previousMargin;
 console.log(images);
 
 const animateDot = (linkSelector, dotSelector) => {
@@ -32,6 +33,32 @@ UpdateItemImages();
 itemCount.text(`(${currentItemIndex})`);
 itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
 itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
+
+items.on("mouseenter", function(event) {
+    const img = $(this).children(".carousel-image").children("img");
+
+    // Store the original margin-top before changing it
+    previousMargin = img.css("margin-top");
+
+    // Animate to margin-top: 0%
+    img.animate({
+        "margin-top": "0%"
+    }, 500, "swing");
+
+    console.log("Mouseover fired");
+});
+
+items.on("mouseleave", function() {
+    const img = $(this).children(".carousel-image").children("img");
+
+    // Animate back to the previous margin
+    img.animate({
+        "margin-top": previousMargin
+    }, 500, "swing");
+
+    console.log("Mouseout fired");
+});
+
 
 
 carouselContainer.css({
