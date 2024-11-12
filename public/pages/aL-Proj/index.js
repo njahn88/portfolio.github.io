@@ -1,4 +1,12 @@
 const carouselContainer = $(".carousel-container");
+const items = $(".carousel-container .carousel-item");
+const centers = []
+const windowCenterX = window.innerWidth / 2;
+let currentItemIndex = 0;
+let currentTranslateX; // Track the current translation
+var translationAmount;
+var animating = false;
+const itemCount = $(".top-info-box#count");
 
 const animateDot = (linkSelector, dotSelector) => {
     const dot = $(dotSelector);
@@ -14,17 +22,10 @@ const animateDot = (linkSelector, dotSelector) => {
 
 animateDot(".top-header-link#about", ".dot#about");
 animateDot(".top-header-link#archive", ".dot#archive");
-
-
-const items = $(".carousel-container .carousel-item");
-const centers = []
-const windowCenterX = window.innerWidth / 2;
-let currentItemIndex = 0;
 GetCenterOfItems();
-console.log(centers);
-let currentTranslateX = windowCenterX - centers[0]; // Track the current translation
-const translationAmount = centers[0] - centers[1];
-var animating = false;
+itemCount.text(`(${currentItemIndex})`);
+
+
 carouselContainer.css({
     transform: `translateX(${windowCenterX - centers[0]}px)`,
     "-webkit-transform": `translateX(${windowCenterX - centers[0]}px)` // for compatibility
@@ -36,6 +37,8 @@ function GetCenterOfItems(){
         const $element = $(element);
         centers.push(GetPosition($element));
     })
+    translationAmount = centers[0] - centers[1];
+    currentTranslateX = windowCenterX - centers[0];
 }
 
 function GetPosition(element){
@@ -87,6 +90,7 @@ $(window).on("mousewheel", (event) => {
     currentItemIndex--;
     targetTranslateX = currentTranslateX + -translationAmount;
    }
+   itemCount.text(`(${currentItemIndex})`);
    console.log(currentItemIndex);
    // Limit the translation within bounds
 
