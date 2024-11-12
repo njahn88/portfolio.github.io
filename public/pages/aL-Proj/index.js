@@ -34,30 +34,39 @@ itemCount.text(`(${currentItemIndex})`);
 itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
 itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
 
-items.on("mouseenter", function(event) {
-    const img = $(this).children(".carousel-image").children("img");
+items.each(function(index, element){
+    $(element).on("mouseenter", function(event) {
+        const img = $(this).children(".carousel-image").children("img");
+    
+        // Store the original margin-top before changing it
+        previousMargin = img.css("margin-top");
+    
+        // Animate to margin-top: 0%
+        img.animate({
+            "margin-top": "0%"
+        }, 500, "swing");
+        
+        itemCount.text(`(${index})`);
+        itemSource.text(`${$(items[index]).children(".carousel-item-source").text()}`);
+        itemDescription.text(`${$(items[index]).children(".carousel-item-description").text()}`);
+    
+        console.log("Mouseover fired");
+    });
+    $(element).on("mouseleave", function() {
+        const img = $(this).children(".carousel-image").children("img");
+    
+        // Animate back to the previous margin
+        img.animate({
+            "margin-top": previousMargin
+        }, 500, "swing");
 
-    // Store the original margin-top before changing it
-    previousMargin = img.css("margin-top");
-
-    // Animate to margin-top: 0%
-    img.animate({
-        "margin-top": "0%"
-    }, 500, "swing");
-
-    console.log("Mouseover fired");
-});
-
-items.on("mouseleave", function() {
-    const img = $(this).children(".carousel-image").children("img");
-
-    // Animate back to the previous margin
-    img.animate({
-        "margin-top": previousMargin
-    }, 500, "swing");
-
-    console.log("Mouseout fired");
-});
+        itemCount.text(`(${currentItemIndex})`);
+        itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
+        itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
+    
+        console.log("Mouseout fired");
+    });
+})
 
 
 
