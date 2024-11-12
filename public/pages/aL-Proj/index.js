@@ -7,6 +7,8 @@ let currentTranslateX; // Track the current translation
 var translationAmount;
 var animating = false;
 const itemCount = $(".top-info-box#count");
+const itemSource = $(".top-info-box#source");
+const itemDescription = $(".top-info-box-bottom");
 
 const animateDot = (linkSelector, dotSelector) => {
     const dot = $(dotSelector);
@@ -24,6 +26,8 @@ animateDot(".top-header-link#about", ".dot#about");
 animateDot(".top-header-link#archive", ".dot#archive");
 GetCenterOfItems();
 itemCount.text(`(${currentItemIndex})`);
+itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
+itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
 
 
 carouselContainer.css({
@@ -91,6 +95,8 @@ $(window).on("mousewheel", (event) => {
     targetTranslateX = currentTranslateX + -translationAmount;
    }
    itemCount.text(`(${currentItemIndex})`);
+   itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
+   itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
    console.log(currentItemIndex);
    // Limit the translation within bounds
 

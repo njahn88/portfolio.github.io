@@ -50,6 +50,14 @@
     margin: 0em .5em 0em .5em;
 }
 
+.carousel-item-source{
+    display: none;
+}
+
+.carousel-item-description{
+    display: none;
+}
+
 .text-base{
     font-family: "Carrois Gothic", sans-serif;
     font-weight: 400;
