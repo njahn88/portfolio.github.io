@@ -9,6 +9,9 @@ var animating = false;
 const itemCount = $(".top-info-box#count");
 const itemSource = $(".top-info-box#source");
 const itemDescription = $(".top-info-box-bottom");
+const imageMarginTopRatios = ["20%", "30%", "50%"]
+const images = $("img");
+console.log(images);
 
 const animateDot = (linkSelector, dotSelector) => {
     const dot = $(dotSelector);
@@ -25,6 +28,7 @@ const animateDot = (linkSelector, dotSelector) => {
 animateDot(".top-header-link#about", ".dot#about");
 animateDot(".top-header-link#archive", ".dot#archive");
 GetCenterOfItems();
+UpdateItemImages();
 itemCount.text(`(${currentItemIndex})`);
 itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
 itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
@@ -32,7 +36,7 @@ itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-desc
 
 carouselContainer.css({
     transform: `translateX(${windowCenterX - centers[0]}px)`,
-    "-webkit-transform": `translateX(${windowCenterX - centers[0]}px)` // for compatibility
+    "-webkit-transform": `translateX(${windowCenterX - centers[0]}px)`
 });
 
 function GetCenterOfItems(){
@@ -51,6 +55,29 @@ function GetPosition(element){
     return offset.left + width / 2;
 }
 
+function UpdateItemImages(){
+    $(images[currentItemIndex]).animate({
+        "margin-top": "0%"
+    }, 500, "swing");
+    UpdateImage(currentItemIndex, 1);
+    UpdateImage(currentItemIndex, 2);
+    UpdateImage(currentItemIndex, 3)
+}
+
+function UpdateImage(currentIndex, spread){
+    if(!(currentIndex + spread > images.length - 1)){
+        $(images[currentIndex + spread]).animate({
+            "margin-top": imageMarginTopRatios[spread - 1]
+        }, 500, "swing");
+    }
+    if(!(currentIndex + spread < 0))
+    {
+        $(images[currentIndex - spread]).animate({
+            "margin-top": imageMarginTopRatios[spread - 1]
+        }, 500, "swing");
+    }
+}
+
 
 
 function lerp(a, b, t) {
@@ -59,13 +86,11 @@ function lerp(a, b, t) {
 
 function smoothTranslate() {
     animating = true;
-    // Apply the smooth scroll using lerp
-    currentTranslateX = lerp(currentTranslateX, targetTranslateX, 0.1); // 0.1 is the smoothing factor
+    currentTranslateX = lerp(currentTranslateX, targetTranslateX, 0.05);
 
-    // Apply the new translateX value
     carouselContainer.css({
         transform: `translateX(${currentTranslateX}px)`,
-        "-webkit-transform": `translateX(${currentTranslateX}px)` // for compatibility
+        "-webkit-transform": `translateX(${currentTranslateX}px)`
     });
 
     // Continue the animation if we're not close enough to the target
@@ -78,13 +103,10 @@ function smoothTranslate() {
 }
 
 $(window).on("mousewheel", (event) => {
-    // Determine scroll direction and scroll amount
-   // Determine scroll direction and scroll amount
    if(animating) return;
    const scrollAmount = event.originalEvent.wheelDelta > 0 ? -1 : 1;
 
    if(scrollAmount == 1){
-    console.log("scroll down");
     if(currentItemIndex == centers.length - 1) return;
     currentItemIndex++;
     targetTranslateX = currentTranslateX + translationAmount;
@@ -97,11 +119,8 @@ $(window).on("mousewheel", (event) => {
    itemCount.text(`(${currentItemIndex})`);
    itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
    itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
-   console.log(currentItemIndex);
-   // Limit the translation within bounds
-
-   // Start the smooth scroll animation if it's not already running
    if (Math.abs(targetTranslateX - currentTranslateX) > 0.5) {
        smoothTranslate();
-   }
+    }
+    UpdateItemImages();
 });
