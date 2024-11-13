@@ -30,6 +30,7 @@ animateDot(".top-header-link#about", ".dot#about");
 animateDot(".top-header-link#archive", ".dot#archive");
 GetCenterOfItems();
 UpdateItemImages();
+UpdateRestImages(4);
 itemCount.text(`(${currentItemIndex})`);
 itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
 itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
@@ -50,7 +51,6 @@ items.each(function(index, element){
         itemSource.text(`${$(items[index]).children(".carousel-item-source").text()}`);
         itemDescription.text(`${$(items[index]).children(".carousel-item-description").text()}`);
     
-        console.log("Mouseover fired");
     });
     $(element).on("mouseleave", function() {
         const img = $(this).children(".carousel-image").children("img");
@@ -64,7 +64,6 @@ items.each(function(index, element){
         itemSource.text(`${$(items[currentItemIndex]).children(".carousel-item-source").text()}`);
         itemDescription.text(`${$(items[currentItemIndex]).children(".carousel-item-description").text()}`);
     
-        console.log("Mouseout fired");
     });
 })
 
@@ -112,6 +111,14 @@ function UpdateImage(currentIndex, spread){
             "margin-top": imageMarginTopRatios[spread - 1]
         }, 500, "swing");
     }
+}
+
+function UpdateRestImages(index){
+    if(index == images.length) return;
+    $(images[index]).animate({
+        "margin-top": "50%"
+    }, 500, "swing");
+    UpdateRestImages(index + 1);
 }
 
 
