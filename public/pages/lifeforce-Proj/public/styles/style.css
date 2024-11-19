@@ -118,11 +118,11 @@ body{
 }
 
 .mission-statement-container hr {
-    grid-row: 3; /* Place it in the correct row */
-    grid-column: col-1; /* Ensure it spans the full width of the container */
-    width: 100%; /* Additional safeguard to ensure full width */
-    border: none; /* Remove default border styling if not desired */
-    border-top: 2px solid rgb(80, 80, 80); /* Add a custom border for styling */
+    grid-row: 3;
+    grid-column: col-1; 
+    width: 100%;
+    border: none;
+    border-top: 2px solid rgb(80, 80, 80);
 }
 
 .main-content-container{
@@ -162,10 +162,6 @@ body{
     grid-row-end: 2;
 }
 
-.dotted-border{
-    border-radius: 5px;
-    border-color: blue;
-    border-style: dotted;
-}
+
 
 
