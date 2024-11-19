@@ -52,11 +52,28 @@
     border: none;
 }
 
+.top-level-image{
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+}
+
+.top-level-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 .font-base{
     font-family: "Poiret One", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 20px;
+    color: rgb(80, 80, 80);
 }
 
 .header-link{
@@ -64,6 +81,15 @@
     display: flex;
     justify-content: left;
     align-items: center;
+}
+
+.main-page-info-container{
+    margin-top: 60vh;
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 40vw;
+    grid-template-rows: [row-1] auto [row-2] auto [row-3] auto [row-4] auto;
+    row-gap: 10px;
 }
 
 .header-line{
