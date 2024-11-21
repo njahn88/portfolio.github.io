@@ -270,6 +270,38 @@ body{
     grid-template-rows: auto;
 }
 
+.footer-container-main-1{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: .5fr 1fr;
+}
+
+.footer-container-main-2{
+    display: grid;
+    border: 1px solid rgb(151, 151, 151);
+    border-radius: 5px;
+    grid-template-rows: .5fr 1fr;
+    padding: 1em;
+}
+
+.footer-container-main-2-info{
+    display: grid;
+    grid-template-columns: 1fr .8fr;
+    grid-auto-rows: 1fr 1fr 1fr;
+}
+
+.link-text{
+    color: white;
+    font-size: 15px;
+}
+
+
+.footer-container-secondary{
+    display: grid;
+    grid-template-rows: .5fr 1fr;
+    grid-template-columns: auto;
+}
+
 
 
 
