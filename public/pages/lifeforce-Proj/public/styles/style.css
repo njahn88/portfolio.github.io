@@ -257,6 +257,19 @@ body{
     text-align: center;
 }
 
+.footer-container{
+    background-color: rgb(39, 26, 14);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 2fr .1fr 1fr;
+}
+
+.footer-container-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
 
 
 
