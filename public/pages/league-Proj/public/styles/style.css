@@ -23,6 +23,11 @@
     grid-template-rows: .7fr .3fr;
 }
 
+.header-link #league-logo{
+    display: grid;
+    grid-template-columns: .5fr .5fr;
+}
+
 .header-link-underline{
     width: 100%;
     border-radius: 2px;
