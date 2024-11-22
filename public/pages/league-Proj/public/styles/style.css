@@ -18,9 +18,11 @@
 
 
 .header-link{
-    display: grid;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-wrap: wrap;
     margin: 0em 1em 0em 1em;
-    grid-template-rows: .7fr .3fr;
+    grid-template-rows: .7fr auto;
     cursor: pointer;
 }
 
@@ -30,8 +32,10 @@
 }
 
 .header-link-underline{
+    margin-bottom: 5px;
     width: 100%;
     border-radius: 2px;
+    height: 3px;
     background-color: rgb(11, 196, 226);
     opacity: 0;
 }
@@ -48,7 +52,12 @@
 }
 
 p{
+    margin: 18px 0px 8px 0px;
     padding: 7px;
+}
+
+p#universe{
+    margin: 10px 0px 8px 0px;
 }
 .text-base{
     font-family: "Poppins", sans-serif;
