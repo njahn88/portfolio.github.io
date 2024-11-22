@@ -12,11 +12,10 @@
 .header-right-container{
     display: flex;
     align-items: center;
+    justify-content: right;
+    padding: 0em 3em 0em 1em;
 }
 
-p{
-    padding: 7px;
-}
 
 .header-link{
     display: grid;
@@ -31,13 +30,25 @@ p{
     opacity: 0;
 }
 
+.header-globe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    background: none;
+    margin: 0em 0em 0em 1em;
+}
+
+p{
+    padding: 7px;
+}
 .text-base{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: white;
 }
-
 body{
     margin: 0;
 }

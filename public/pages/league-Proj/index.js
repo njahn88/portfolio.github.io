@@ -16,3 +16,27 @@ $(".header-link").on("mouseleave", function() {
         background: "none"
     })
 })
+
+$(".header-globe").on("mouseover", function() {
+    $(this).css({
+        background: "rgba(128, 128, 128, .3)"
+    })
+})
+
+$(".header-globe").on("mouseleave", function() {
+    $(this).css({
+        background: "none"
+    })
+})
+
+$("#play-now").on("mouseover", function() {
+    $(this).css({
+        background: "rgb(11, 196, 226)"
+    })
+})
+
+$("#play-now").on("mouseleave", function() {
+    $(this).css({
+        background: "linear-gradient(315deg, rgb(11, 196, 226) 0%, rgb(44, 140, 194) 100%)"
+    })
+})
