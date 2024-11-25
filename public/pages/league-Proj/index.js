@@ -58,11 +58,13 @@ var scrollPos = 0;
 
 
 $(window).on("mousewheel", (event) => {
-    ToggleCover();
+    const scrollAmount = event.originalEvent.wheelDelta > 0 ? -1 : 1;
+    ToggleCover(scrollAmount);
 })
 
-function ToggleCover(){
-    if(window.scrollY === 0){
+function ToggleCover(scrollamount){
+    console.log($(window).scrollTop());
+    if($(window).scrollTop() < 100){
         $(".page-cover").stop(true).animate({
             opacity: 0
         }, 500, "swing");

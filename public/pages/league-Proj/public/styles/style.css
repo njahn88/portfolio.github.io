@@ -69,6 +69,10 @@
     width: 100%;
 }
 
+.background-image{
+    position: fixed;
+}
+
 .bio-container{
     position: absolute;
     width: 100%;
