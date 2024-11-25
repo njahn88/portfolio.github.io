@@ -62,35 +62,26 @@ $(window).on("mousewheel", (event) => {
 })
 
 function ToggleCover(){
-    if((document.body.getBoundingClientRect()).top > scrollPos){
+    if(window.scrollY === 0){
         $(".page-cover").stop(true).animate({
             opacity: 0
         }, 500, "swing");
-        $("#champion-name").stop(true).slideDown("slow", function(){
-            $("#champion-name").animate({
-                opacity: 1
-            }, 500, "swing");
-        })
-        $("#champion-title").stop(true).slideDown("slow", function(){
-            $("#champion-title").animate({
-                opacity: 1
-            }, 500, "swing");
-        })
+        $("#champion-name").stop(true).animate({
+            opacity: 1
+        }, 500, "swing");
+        $("#champion-title").stop(true).animate({
+            opacity: 1
+        }, 500, "swing");
     }
     else{
         $(".page-cover").stop(true).animate({
             opacity: 1
         }, 500, "swing");
-        $("#champion-name").stop(true).slideUp("slow", function(){
-            $("#champion-name").animate({
-                opacity: 0
-            }, 500, "swing");
-        })
-        $("#champion-title").stop(true).slideUp("slow", function(){
-            $("#champion-title").animate({
-                opacity: 0
-            }, 500, "swing");
-        })
+        $("#champion-name").stop(true).animate({
+            opacity: 0
+        }, 500, "swing");
+        $("#champion-title").stop(true).animate({
+            opacity: 0
+        }, 500, "swing");
     }
-    scrollPos = (document.body.getBoundingClientRect()).top;
 }
