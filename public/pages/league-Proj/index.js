@@ -53,3 +53,24 @@ $(".header-link#riot-games-logo").on("mouseleave", function() {
         fill: "white"
     })
 })
+
+var scrollPos = 0;
+
+
+$(window).on("mousewheel", (event) => {
+    ToggleCover();
+})
+
+function ToggleCover(){
+    if((document.body.getBoundingClientRect()).top > scrollPos){
+        $(".page-cover").stop(true).animate({
+            opacity: 0
+        }, 500, "swing");
+    }
+    else{
+        $(".page-cover").stop(true).animate({
+            opacity: 1
+        }, 500, "swing");
+    }
+    scrollPos = (document.body.getBoundingClientRect()).top;
+}

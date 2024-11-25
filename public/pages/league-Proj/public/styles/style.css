@@ -2,6 +2,9 @@
     background-color: #111;
     display: grid;
     grid-template-columns: .6fr .2fr .2fr;
+    position: fixed;
+    width: 100vw;
+    z-index: 3;
 }
 
 .header-left-container{
@@ -51,6 +54,21 @@
     margin: 0em 0em 0em 1em;
 }
 
+.page-cover{
+    position: fixed;
+    background-color: #111;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+    opacity: 0;
+}
+
+.background-image img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 p{
     margin: 18px 0px 8px 0px;
     padding: 7px;
@@ -67,4 +85,5 @@ p#universe{
 }
 body{
     margin: 0;
+    overflow-x: hidden;
 }
